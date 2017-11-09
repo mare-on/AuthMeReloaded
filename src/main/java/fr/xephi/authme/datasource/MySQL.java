@@ -177,7 +177,7 @@ public class MySQL implements DataSource {
 
             if (isColumnMissing(md, col.REAL_NAME)) {
                 st.executeUpdate("ALTER TABLE " + tableName
-                    + " ADD COLUMN " + col.REAL_NAME + " VARCHAR(255) NOT NULL AFTER " + col.NAME + ";");
+                    + " ADD COLUMN " + col.REAL_NAME + " VARCHAR(16) NOT NULL AFTER " + col.NAME + ";");
             }
 
             if (isColumnMissing(md, col.PASSWORD)) {
@@ -209,7 +209,7 @@ public class MySQL implements DataSource {
 
             if (isColumnMissing(md, col.REGISTRATION_IP)) {
                 st.executeUpdate("ALTER TABLE " + tableName
-                    + " ADD COLUMN " + col.REGISTRATION_IP + " VARCHAR(40) CHARACTER SET ascii COLLATE ascii_bin;");
+                    + " ADD COLUMN " + col.REGISTRATION_IP + " VARCHAR(45) CHARACTER SET ascii COLLATE ascii_bin;");
             }
 
             if (isColumnMissing(md, col.LASTLOC_X)) {
@@ -246,7 +246,7 @@ public class MySQL implements DataSource {
 
             if (isColumnMissing(md, col.IS_LOGGED)) {
                 st.executeUpdate("ALTER TABLE " + tableName + " ADD COLUMN "
-                    + col.IS_LOGGED + " SMALLINT NOT NULL DEFAULT '0' AFTER " + col.EMAIL);
+                    + col.IS_LOGGED + " TINYINT(1) NOT NULL DEFAULT '0' AFTER " + col.EMAIL);
             }
 
             if (isColumnMissing(md, col.HAS_SESSION)) {
